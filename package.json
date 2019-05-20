@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/xuyuji9000/prometheus-nodejs-service/issues"
   },
-  "homepage": "https://github.com/xuyuji9000/prometheus-nodejs-service#readme"
+  "homepage": "https://github.com/xuyuji9000/prometheus-nodejs-service#readme",
+  "dependencies": {
+    "express": "^4.17.0",
+    "prom-client": "^11.3.0"
+  }
 }
