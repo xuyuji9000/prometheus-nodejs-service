@@ -1,10 +1,19 @@
 const express =  require("express")
 const app = express()
 
+const Prometheus = require('prom-client')
+const metricsInterval = Prometheus.collectDefaultMetrics()
+
+
 app.get('/', function(req, res) {
     res.send("Hello World")
 })
 
-app.listen(3000, () =>
-  console.log('Example app listening on port 3000!'),
+app.get('/metrics', (req, res) => {
+    res.set('Content-Type', Prometheus.register.contentType)
+    res.end(Prometheus.register.metrics())
+})
+
+app.listen(8080, () =>
+  console.log('Example app listening on port 8080!'),
 );
