@@ -14,6 +14,10 @@ app.get('/metrics', (req, res) => {
     res.end(Prometheus.register.metrics())
 })
 
+app.get('/admin/health', (req, res) => {
+  res.json({"status": "OK"});
+})
+
 app.listen(8080, () =>
   console.log('Example app listening on port 8080!'),
 );
